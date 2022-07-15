@@ -46,7 +46,7 @@ jobs:
         run: |
           infracost breakdown --path=${TF_ROOT} \
                               --usage-file=infracost-usage.yml \
-                              --project-name="Infracost demo" \
+                              --project-name="Marketing project - website" \
                               --format=json \
                               --out-file=/tmp/infracost-base.json
 
@@ -59,7 +59,7 @@ jobs:
         run: |
           infracost diff --path=${TF_ROOT} \
                           --usage-file=infracost-usage.yml \
-                          --project-name="Infracost demo" \
+                          --project-name="Marketing project - website" \
                           --format=json \
                           --compare-to=/tmp/infracost-base.json \
                           --out-file=/tmp/infracost.json
