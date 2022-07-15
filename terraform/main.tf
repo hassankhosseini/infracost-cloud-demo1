@@ -22,6 +22,22 @@ resource "aws_instance" "web_app" {
   }
 }
 
+resource "aws_instance" "load_balancers" {
+  ami           = "ami-674cbc1e"
+  instance_type = "m5.4xlarge"              # <<<<< Try changing this to m5.8xlarge to compare the costs
+
+  root_block_device {
+    volume_size = 700
+  }
+
+  ebs_block_device {
+    device_name = "my_data"
+    volume_type = "io1"
+    volume_size = 3000
+    iops        = 1000                      # <<<<< Try changing this to 10000 to compare costs
+  }
+}
+
 resource "aws_lambda_function" "hello_world" {
   function_name = "hello_world"
   role          = "arn:aws:lambda:us-east-1:account-id:resource-id"
