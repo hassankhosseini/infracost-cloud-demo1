@@ -11,14 +11,14 @@ resource "aws_instance" "web_app" {
   instance_type = "m5.xlarge"              # <<<<< Try changing this to m5.8xlarge to compare the costs
 
   root_block_device {
-    volume_size = 70
+    volume_size = 50
   }
 
   ebs_block_device {
     device_name = "my_data"
     volume_type = "io1"
-    volume_size = 300
-    iops        = 150                      # <<<<< Try changing this to 10000 to compare costs
+    volume_size = 200
+    iops        = 100                      # <<<<< Try changing this to 10000 to compare costs
   }
 }
 
