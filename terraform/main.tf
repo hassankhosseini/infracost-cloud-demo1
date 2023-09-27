@@ -24,7 +24,7 @@ resource "aws_instance" "web_app" {
 
 resource "aws_instance" "load_balancers" {
   ami           = "ami-674cbc1e"
-  instance_type = "m5.8xlarge"              
+  instance_type = "m5.4xlarge"              
 
   root_block_device {
     volume_size = 700
